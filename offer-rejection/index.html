@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- author: sachin wakle -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer Rejection Mail</title>
+</head>
+
+<body>
+    <header>
+        <h1>Declining an Offer After Accepting It</h1>
+    </header>
+    <main>
+        <form id="mailDetails">
+            <label for="recipient">Recipient Name</label>
+            <input type="text" id="recipient" name="recipient">
+            <br><br>
+            <label for="organization">Organization</label>
+            <input type="text" id="organization" name="organization">
+            <br><br>
+            <label for="jobtitle">Job Title</label>
+            <input type="text" id="jobtitle" name="jobtitle">
+            <br><br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </form>
+        <hr>
+        <br>
+        <article>
+            <pre style="font: 10pt Verdana;">
+Hello <span class="recipient-name">[Recruiter]</span>,
+
+Thank you so much for offering me the position of <span class="job-title">[Job Title]</span> at <span class="organization-name">[Organization]</span>. It has been a pleasure speaking with you and learning more about <span class="organization-name">[Organization]</span>.
+
+Unfortunately, after a great deal of thought, I have decided to turn down this gracious job opportunity. I have recently decided to accept another position that I believe is a better fit for my abilities, skill set and the financial requirements of my current situation. I am truly sorry for any inconvenience this decision may cause and hope it will not affect any future relationships with <span class="organization-name">[Organization]</span>.
+I wish you continued success and hope to hear from you in the future.
+
+Kind Regards,
+            </pre>
+        </article>
+    </main>
+    <script>
+        document.getElementById("mailDetails").addEventListener("submit", submitHandler);
+
+        function submitHandler(event) {
+            event.preventDefault();
+            document.querySelector(".recipient-name").innerText = event.target.recipient.value;
+
+            document.querySelector(".job-title").innerText = event.target.jobtitle.value;
+
+            document.querySelectorAll(".organization-name").forEach(company => company.innerText = event.target.organization.value);
+        }
+    </script>
+</body>
+
+</html>
